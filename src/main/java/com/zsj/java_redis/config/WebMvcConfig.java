@@ -1,0 +1,23 @@
+package com.zsj.java_redis.config;
+
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+
+@Slf4j
+@Configuration
+public class WebMvcConfig extends WebMvcConfigurationSupport {
+    /**
+     * 静态资源映射
+     * @param registry
+     */
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        log.info("静态资源映射");
+        registry.addResourceHandler("/front/**").addResourceLocations("classpath:/front/");
+        registry.addResourceHandler("/index.html").addResourceLocations("classpath:/index.html");
+       
+    }
+}

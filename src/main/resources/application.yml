@@ -2,13 +2,18 @@ server:
   port: 80
 
 spring:
+  #邮箱发送消息
+  mail:
+    host: smtp.qq.com
+    username: 2982419675@qq.com
+    password: xuceilxjvnsndfaa
 #  mysql
   datasource:
     url: jdbc:mysql://localhost:3306/java_redis?characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    redis
+  #    redis
   redis:
     host: localhost
     port: 6379
@@ -22,8 +27,8 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      id-type: ASSIGN_ID
+      id-type: ASSIGN_ID #雪花算法形成id
 
 logging:
-  level: debug
-
+  root:
+    level: debug
